@@ -5,54 +5,98 @@
 }
 
 @media only screen and (max-width: 600px){
+    /*body*/
     body{
         position: relative;
         color: #fff;
         width: 100vw;
         height: 100vh;
-        display: grid;
-        grid-template-rows: 10% 0% 80% 10%;
     }
+    .grid-container{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 15% minmax(80%,auto) 5%;
+        grid-template-columns: 100%;
+        grid-template-areas: "header header header"
+                             "main main main"
+                             "footer footer footer";
+    }
+    /**/
+
     /*header*/
-    header{
+    .header{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 75% 25%;
+        grid-template-areas: "header-1"
+                             "nav";
+        
+        grid-area: header;
+    }
+    .header-1{
+        grid-area: header-1;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 10px 10px 10px 35px;
         background-color: black;
     }
     
-    nav{
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        background-color: darkgray;
-    }
-
     #menu-icon{
         max-width: 40px;
     }
-
     /**/
+
+    /*nav*/
+    nav{
+        grid-area: nav;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        
+    }
+
+    #nav{
+        width: 100%;
+        height: 100%;
+        background-color: green;
+    }
+
+    #nav > p{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /**/
+
     /*main*/
     main{
+        grid-area: main;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #000;
     }
-    p{
+    main > p{
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     /**/
     footer{
+        grid-area: footer;
         background-color: #000;
-        position: fixed;
-        bottom: 0;
         width: 100%;
+        position: sticky;
+        bottom: 0;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     /**/ 
 }
